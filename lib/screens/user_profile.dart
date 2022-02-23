@@ -72,7 +72,7 @@ class UserProfile extends StatelessWidget {
                     fontWeight: FontWeight.w500,
                     color: Colors.black),
               ),
-              const SizedBox(width: 9),
+              const SizedBox(width: 12),
               Padding(
                 padding: const EdgeInsets.only(top: 10),
                 child: Text(
@@ -187,18 +187,10 @@ class UserProfile extends StatelessWidget {
 }
 
 Widget buildSheet() => const GetVerfied();
-//  showModalBottomSheet(
-//                         backgroundColor: Colors.black,
-//                         shape: const RoundedRectangleBorder(
-//                             borderRadius: BorderRadius.only(
-//                                 topLeft: Radius.circular(19),
-//                                 topRight: Radius.circular(19))),
-//                         context: context,
-//                         builder: (context) => buildSheet());
+
 showDialogWidget(BuildContext context) {
   AlertDialog alert = AlertDialog(
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(22)),
-
+    shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(22)),
     backgroundColor: Colors.black,
     content: SingleChildScrollView(
       child: Column(

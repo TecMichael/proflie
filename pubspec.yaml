@@ -38,6 +38,8 @@ dependencies:
   flutter_svg: ^0.22.0
   sizer: ^2.0.15
   animate_do: ^2.1.0
+  carousel_slider: ^4.0.0
+
 
 
 
