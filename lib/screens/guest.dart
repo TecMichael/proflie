@@ -369,22 +369,57 @@ class GuestScreen extends StatelessWidget {
               ),
             ),
             Padding(
-              padding: const EdgeInsets.only(left: 20, top: 10),
+              padding: const EdgeInsets.only(left: 20, top: 25),
               child: Row(
                 children: [
                   Container(
                     height: 25,
-                    width: 70,
+                    width: 100,
                     decoration: BoxDecoration(
                       color: const Color(0xFFD387FF),
                       borderRadius: BorderRadius.circular(20),
                     ),
-                   child: Row(
-                     children: const [
-                       Text('data'),
-                     ],
-                   ),
-                  )
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: [
+                        SvgPicture.asset(
+                          'assets/spotify.svg',
+                          width: 20,
+                          height: 15,
+                        ),
+                        Text(
+                          'connect',
+                          style: GoogleFonts.roboto(
+                            fontSize: 15,
+                            fontWeight: FontWeight.bold,
+                            color: Colors.black,
+                          ),
+                        )
+                      ],
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            const SizedBox(height: 20),
+            Container(
+              width: double.infinity,
+              height: 1,
+              color: const Color(0xFFD387FF),
+            ),
+            const SizedBox(height: 20),
+            Padding(
+              padding: const EdgeInsets.only(left: 25),
+              child: Row(
+                children: [
+                  Text(
+                    'My Instagram',
+                    style: GoogleFonts.roboto(
+                      fontSize: 15,
+                      fontWeight: FontWeight.w500,
+                      color: Colors.black,
+                    ),
+                  ),
                 ],
               ),
             )

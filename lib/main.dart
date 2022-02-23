@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:profile/screens/user_profile.dart';
+import 'package:profile/screens/guest.dart';
 
 void main() {
   runApp(const MyApp());
@@ -18,7 +18,7 @@ class MyApp extends StatelessWidget {
         scaffoldBackgroundColor: Colors.white,
         primarySwatch: Colors.blue,
       ),
-      home: const UserProfile(),
+      home: const GuestScreen(),
     );
   }
 }
