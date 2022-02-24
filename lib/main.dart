@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:profile/screens/user_profile.dart';
-
+import 'package:sizer/sizer.dart';
 void main() {
   runApp(const MyApp());
 }

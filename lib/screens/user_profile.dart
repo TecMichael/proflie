@@ -4,6 +4,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:profile/screens/guest.dart';
 import 'package:profile/screens/information_screen.dart';
 import 'get_verified.dart';
+import 'package:sizer/sizer.dart';
 
 class UserProfile extends StatelessWidget {
   const UserProfile({Key? key}) : super(key: key);
@@ -44,7 +45,7 @@ class UserProfile extends StatelessWidget {
               ),
             ],
           ),
-          const SizedBox(height: 2),
+           const SizedBox(height: 2),
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [

@@ -22,7 +22,9 @@ class GuestScreen extends StatelessWidget {
       appBar: AppBar(
         elevation: 0,
         leading: IconButton(
-          onPressed: () {},
+          onPressed: () {
+            Navigator.pop(context);
+          },
           icon: const Icon(
             Icons.arrow_back_ios,
             color: Colors.grey,
@@ -427,27 +429,33 @@ class GuestScreen extends StatelessWidget {
           const SizedBox(height: 14),
           Padding(
             padding: const EdgeInsets.only(left: 20),
-            child: Row(
-              children: const [
-                InstagramBox(),
-                SizedBox(width: 10),
-                InstagramBox(),
-                SizedBox(width: 10),
-                InstagramBox(),
-              ],
+            child: SingleChildScrollView(
+              scrollDirection: Axis.horizontal,
+              child: Row(
+                children: const [
+                  InstagramBox(),
+                  SizedBox(width: 10),
+                  InstagramBox(),
+                  SizedBox(width: 10),
+                  InstagramBox(),
+                ],
+              ),
             ),
           ),
           const SizedBox(height: 10),
           Padding(
             padding: const EdgeInsets.only(left: 20),
-            child: Row(
-              children: const [
-                InstagramBox(),
-                SizedBox(width: 10),
-                InstagramBox(),
-                SizedBox(width: 10),
-                InstagramBox(),
-              ],
+            child: SingleChildScrollView(
+              scrollDirection: Axis.horizontal,
+              child: Row(
+                children: const [
+                  InstagramBox(),
+                  SizedBox(width: 10),
+                  InstagramBox(),
+                  SizedBox(width: 10),
+                  InstagramBox(),
+                ],
+              ),
             ),
           ),
           Padding(
@@ -493,13 +501,18 @@ class GuestScreen extends StatelessWidget {
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Text(
-                'REPORT NELLY',
-                style: GoogleFonts.roboto(
-                    fontSize: 15,
-                    fontWeight: FontWeight.w600,
-                    color: const Color(0xFFD387FF),
-                    decoration: TextDecoration.underline),
+              GestureDetector(
+                onTap: () {
+                  showDialogBidget(context);
+                },
+                child: Text(
+                  'REPORT NELLY',
+                  style: GoogleFonts.roboto(
+                      fontSize: 15,
+                      fontWeight: FontWeight.w600,
+                      color: const Color(0xFFD387FF),
+                      decoration: TextDecoration.underline),
+                ),
               ),
             ],
           ),
@@ -549,7 +562,7 @@ class GuestScreen extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         SvgPicture.asset(
-                          'assets/cross.svg',
+                          'assets/crosss.svg',
                           width: 25,
                           height: 35,
                           color: Colors.red,
@@ -594,4 +607,211 @@ class GuestScreen extends StatelessWidget {
   }
 }
 
+showDialogBidget(BuildContext context) {
+  AlertDialog alert = AlertDialog(
+    shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(25)),
+    backgroundColor: const Color(0xFFD387FF),
+    title: Column(
+      children: [
+        Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Text(
+              '    You want\nto report Nelly',
+              style: GoogleFonts.roboto(
+                  fontSize: 27,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.white),
+            ),
+          ],
+        ),
+        const SizedBox(height: 30),
+        TextField(
+          maxLength: 700,
+          decoration: InputDecoration(
+            fillColor: Colors.white,
+            filled: true,
+            hintText: 'Tell us what you are reporting',
+            hintStyle: TextStyle(color: Colors.grey.shade400),
+            focusedBorder: OutlineInputBorder(
+                borderSide: const BorderSide(
+                  color: Colors.blue,
+                ),
+                borderRadius: BorderRadius.circular(30)),
+            enabledBorder: OutlineInputBorder(
+              borderSide: BorderSide(
+                color: Colors.grey.shade300,
+              ),
+            ),
+            contentPadding:
+                const EdgeInsets.symmetric(vertical: 160, horizontal: 20),
+            border: const OutlineInputBorder(),
+          ),
+        ),
+        const SizedBox(height: 17),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          children: [
+            Padding(
+              padding: const EdgeInsets.only(top: 50),
+              child: Container(
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(27),
+                  border: Border.all(
+                    color: Colors.white,
+                  ),
+                  color: const Color(0xFFD387FF),
+                ),
+                child: MaterialButton(
+                  height: 40,
 
+                  padding: const EdgeInsets.only(left: 20, right: 20),
+
+                  onPressed: () {},
+
+                  child: const Text(
+                    'CANCEL',
+                    style: TextStyle(
+                        fontSize: 15,
+                        color: Colors.white,
+                        fontWeight: FontWeight.bold),
+                  ),
+
+                  // color: Colors.indigo.shade400,
+                ),
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.only(top: 50),
+              child: Container(
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(27),
+                  border: Border.all(
+                    color: Colors.white,
+                  ),
+                  color: const Color(0xFFD387FF),
+                ),
+                child: MaterialButton(
+                  height: 40,
+                  padding: const EdgeInsets.only(left: 20, right: 20),
+                  onPressed: () {
+                    showDialogCidget(context);
+                  },
+                  child: const Text(
+                    'SUMMIT',
+                    style: TextStyle(
+                        fontSize: 15,
+                        color: Colors.white,
+                        fontWeight: FontWeight.bold),
+                  ),
+                ),
+              ),
+            ),
+          ],
+        ),
+      ],
+    ),
+  );
+  showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return alert;
+      });
+}
+
+showDialogCidget(BuildContext context) {
+  AlertDialog alert = AlertDialog(
+    shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(25)),
+    backgroundColor: Colors.black,
+    title: Column(
+      children: [
+        Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            SvgPicture.asset(
+              'assets/thank.svg',
+              height: 75,
+              color: const Color(0xFFD387FF),
+            )
+          ],
+        ),
+        const SizedBox(height: 10),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Text(
+              '  Thanks for\ncontacting us\n  about your\nexperience.',
+              style: GoogleFonts.roboto(
+                  fontSize: 26,
+                  color: const Color(0xFFD387FF),
+                  fontWeight: FontWeight.bold),
+            )
+          ],
+        ),
+        const SizedBox(height: 16),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Text(
+              'Your safety is important, and each report\n    helps us on maintaining a safe space\n                   for all our members.',
+              style: GoogleFonts.roboto(
+                  fontSize: 14,
+                  color: Colors.grey,
+                  fontWeight: FontWeight.bold),
+            ),
+          ],
+        ),
+        const SizedBox(height: 14),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Text(
+              'Should you need support, please email us\n           to support@pumpandup.com',
+              style: GoogleFonts.roboto(
+                  fontSize: 14,
+                  color: Colors.grey,
+                  fontWeight: FontWeight.bold),
+            )
+          ],
+        ),
+        const SizedBox(height: 30),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Container(
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(27),
+                border: Border.all(
+                  color: Colors.white,
+                ),
+                color: const Color(0xFFD387FF),
+              ),
+              child: MaterialButton(
+                height: 20,
+                minWidth: 140,
+                padding: const EdgeInsets.only(left: 30, right: 30),
+
+                onPressed: () {},
+
+                child: const Text(
+                  'Ok',
+                  style: TextStyle(
+                      fontSize: 15,
+                      color: Colors.white,
+                      fontWeight: FontWeight.bold),
+                ),
+
+                // color: Colors.indigo.shade400,
+              ),
+            ),
+          ],
+        )
+      ],
+    ),
+  );
+  showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return alert;
+      });
+}
