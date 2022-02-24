@@ -2,14 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-class GetVerfied extends StatelessWidget {
-  const GetVerfied({
-    Key? key,
-  }) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return SingleChildScrollView(
+showDialogWidget(BuildContext context) {
+  AlertDialog alert = AlertDialog(
+    shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(22)),
+    backgroundColor: Colors.black,
+    content: SingleChildScrollView(
       child: Column(
         children: [
           const SizedBox(height: 40),
@@ -30,19 +27,21 @@ class GetVerfied extends StatelessWidget {
                 fontSize: 32, fontWeight: FontWeight.bold, color: Colors.blue),
           ),
           const SizedBox(height: 22),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: const [
-              Text(
-                'We will use facial recognition technology\nto ensure you are the real you and your\nfacial geometry matches with the pictures\n                           on your profile,',
-                maxLines: 4,
-                style: TextStyle(color: Color(0xFFB4B4B4), fontSize: 18),
-              )
-            ],
+          SingleChildScrollView(
+            scrollDirection: Axis.horizontal,
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: const [
+                Text(
+                  'We will use facial recognition technology\nto ensure you are the real you and your\nfacial geometry matches with the pictures\n                 on your profile,',
+                  style: TextStyle(color: Color(0xFFB4B4B4), fontSize: 18),
+                )
+              ],
+            ),
           ),
           const SizedBox(height: 17),
           const Text(
-            'Those selfies arent visible on the App,\nnwe keep them in our system in complete\n               security and confidentiality,',
+            'Those selfies arent visible on the\nApp we keep them in our system in complete security and confidentiality,',
             style: TextStyle(color: Color(0xFFB4B4B4), fontSize: 18),
           ),
           const SizedBox(height: 17),
@@ -107,6 +106,11 @@ class GetVerfied extends StatelessWidget {
           const SizedBox(height: 27),
         ],
       ),
-    );
-  }
+    ),
+  );
+  showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return alert;
+      });
 }
