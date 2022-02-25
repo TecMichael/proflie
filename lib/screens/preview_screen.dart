@@ -1,5 +1,6 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -278,21 +279,21 @@ class PreviewScreen extends StatelessWidget {
           ),
         ),
         Padding(
-          padding: const EdgeInsets.only(left: 10),
+          padding:  EdgeInsets.only(left: 10.w),
           child: Row(
             children: [
               Container(
-                height: 220,
-                width: 190,
+                height: 220.h,
+                width: 190.w,
                 decoration: BoxDecoration(
                   color: Colors.grey.shade300,
                   borderRadius: BorderRadius.circular(20),
                 ),
               ),
-              const SizedBox(width: 10),
+               SizedBox(width: 10.w),
               Container(
-                height: 220,
-                width: 190,
+                height: 220.h,
+                width: 190.w,
                 decoration: BoxDecoration(
                   color: Colors.grey.shade300,
                   borderRadius: BorderRadius.circular(20),
@@ -302,7 +303,7 @@ class PreviewScreen extends StatelessWidget {
           ),
         ),
         Padding(
-          padding: const EdgeInsets.only(left: 50, top: 5, right: 50),
+          padding:  EdgeInsets.only(left: 50.w, top: 5.h, right: 70.w),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
@@ -326,7 +327,7 @@ class PreviewScreen extends StatelessWidget {
           ),
         ),
         Padding(
-          padding: const EdgeInsets.only(left: 50, top: 2, right: 50),
+          padding:  EdgeInsets.only(left: 50.w, top: 2.h, right: 70.w),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
